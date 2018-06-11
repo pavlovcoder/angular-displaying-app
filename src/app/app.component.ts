@@ -13,15 +13,26 @@ import { Book } from './book';
         Title: {{ book.title }}<br/>
         Price: Ƀ{{ book.price }}<br/>
         Available: {{ book.available }}<br/>
-        <button *ngIf="book.available !== 'none'">Buy</button>
+        <button *ngIf="book.available !== 'none'" [style.font-size.em]="btnFontSize ? 2 : 1">Buy</button>
       </p>
     </div>
-    <p>All books = {{ books.length }}</p>
+    <p [style.color]="red">All books = {{ books.length }}</p>
+    <table [class]="summary-table" border=1>
+      <tr>
+        <td [attr.colspan]="1 + 1 + 1">SUMMARY</td>
+      </tr>
+      <tr>
+        <td>Price = Ƀ0.0273</td>
+        <td>VAT = 6%</td>
+        <td>SUM = Ƀ0.0279</td>
+      </tr>
+    </table>
   `
 })
 
 export class AppComponent {
   title = 'The best books of 2017 year';
+  btnFontSize = true;
   books = [
     new Book(345623, 'Home Fire - Kamila Shemsey', 0.0059, 'none'),
     new Book(895245, 'What Happened - Hillary Clinton', 0.0056, 'available'),

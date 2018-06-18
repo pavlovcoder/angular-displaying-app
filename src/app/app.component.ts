@@ -8,7 +8,8 @@ import { Book } from './book';
     <h2>My favorite book is: {{myBook.title}}</h2>
     <p>Books:</p>
     <div>
-      <p *ngFor="let book of books">
+      <p *ngFor="let book of books; let i = index">
+        Order: {{ i + 1 }}<br/>
         ID: {{ book.id }}<br/>
         Title: {{ book.title }}<br/>
         Price: Ƀ{{ book.price }}<br/>
